@@ -1,0 +1,66 @@
+@import 'react-h5-audio-player/lib/styles.css';
+
+.main {
+  margin-top: 30px;
+  .random-movie {
+    padding: 1rem;
+    background-color: gray;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    &__about {
+      width: 80%;
+    }
+    &__title {
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+    }
+    &__img {
+      margin-left: 20px;
+      width: 150px;
+      height: 200px;
+      object-fit: cover;
+    }
+    .rhap_container {
+      outline: none;
+      padding-top: 10px;
+      border-top: 1px solid gray;
+      box-shadow: none;
+      background-color: none;
+      & * {
+        outline: none;
+      }
+    }
+    .rhap_additional-controls {
+      display: none;
+    }
+    .rhap_volume-controls {
+      justify-content: flex-start;
+    }
+    .rhap_play-pause-button {
+      color: red;
+    }
+  }
+  .answer-block {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .answer-block__next-level {
+      width: 100%;
+      margin-top: 15px;
+      padding: 8px;
+      border: none;
+      border-radius: 8px;
+      outline: none;
+      font-size: 1.3rem;
+      box-shadow: none;
+      transition: 0.3s;
+      background-color: green;
+      color: #fff;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}

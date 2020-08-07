@@ -1,0 +1,20 @@
+.movie-description {
+    width: 48%;
+    background-color: gray;
+    border-radius: 8px;
+    color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+
+    & * {
+        padding: 10px;
+    }
+    &__img {
+        width: 200px;
+        height: 300px;
+    }
+    &__film-info {
+        // margin-top: 10px;
+        width: 100%;
+    }
+}
