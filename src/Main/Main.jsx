@@ -10,7 +10,7 @@ import './Main.scss'
 
 function Main(props) {
     // eslint-disable-next-line no-debugger
-    const { activeCategory, setActiveCategory, activeCategoryNumber, totalScore, setTotalScore } = props;
+    const { activeCategory, setActiveCategory, totalScore, setTotalScore } = props;
     const [roundScore, setRoundScore] = useState(5);
     const [randomFilmNumber, setRandomFilmNumber] = useState(Math.floor(0 + Math.random() * 6));
     const [isAnswered, setIsAnswered] = useState(false);
@@ -33,7 +33,7 @@ function Main(props) {
 
     const handleNextBtnClick = () => {
         setRandomFilmNumber(Math.floor(0 + Math.random() * 6));
-        setActiveCategory(activeCategoryNumber + 1);
+        setActiveCategory((prevVal) => prevVal + 1);
         setRoundScore(5);
         setIsAnswered(false);
         setClickedMovie(undefined);
@@ -53,7 +53,7 @@ function Main(props) {
 
 Main.propTypes = {
     activeCategory: PropTypes.string.isRequired,
-    activeCategoryNumber: PropTypes.number.isRequired,
+   // activeCategoryNumber: PropTypes.number.isRequired,
     setActiveCategory: PropTypes.func.isRequired,
     totalScore: PropTypes.number.isRequired,
     setTotalScore: PropTypes.func.isRequired
