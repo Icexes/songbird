@@ -25,9 +25,6 @@ function Main(props) {
                 setTotalScore(totalScore + roundScore);
                 setIsAnswered(true);
             }
-            else {
-                setRoundScore(roundScore - 1);
-            }
         }
         setClickedMovie(movies[index])
     }
@@ -44,7 +41,7 @@ function Main(props) {
         <main className='main'>
             <RandromMovieSection film={randomFilm} isAnswered={isAnswered} />
             <div className='answer-block'>
-                <Answer handleMovieClick={handleMovieClick} movies={movies} randomFilmNumber={randomFilmNumber} isAnswered={isAnswered} />
+                <Answer handleMovieClick={handleMovieClick} movies={movies} randomFilmNumber={randomFilmNumber} isAnswered={isAnswered} setRoundScore={setRoundScore}/>
                 <Description clickedMovie={clickedMovie} />
                 <button type='button' disabled={!isAnswered} className='answer-block__next-level' onClick={() => handleNextBtnClick()}>Далее</button>
             </div>

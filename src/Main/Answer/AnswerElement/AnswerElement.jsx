@@ -7,7 +7,7 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
 function AnswerElement(props) {
-    const { movie, index, handleMovieClick, isAnswered, isCorrect } = props;
+    const { movie, index, handleMovieClick, isAnswered, isCorrect, setRoundScore } = props;
     const [indicatorState, setindicatorState] = useState('gray');
 
 
@@ -21,6 +21,8 @@ function AnswerElement(props) {
                 if (!isAnswered) {
                     if (!isCorrect) {
                         newIndicatorState = 'red';
+                        setRoundScore((prevScore) => prevScore -1)
+
                     }
                     else {
                     newIndicatorState = 'green'
@@ -43,7 +45,7 @@ AnswerElement.propTypes = {
     handleMovieClick: PropTypes.func.isRequired,
     movie: PropTypes.object,
     index: PropTypes.number,
-
+    setRoundScore: PropTypes.func,
     isAnswered: PropTypes.bool,
     isCorrect: PropTypes.bool.isRequired
 }

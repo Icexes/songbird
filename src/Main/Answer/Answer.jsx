@@ -7,12 +7,12 @@ import './Answer.scss'
 // <AnswerElement movie={movie} index={index} randomFilmNumber={randomFilmNumber} handleMovieClick={handleMovieClick}/>
 
 function Answer(props) {
-    const { movies, randomFilmNumber, handleMovieClick, isAnswered} = props;
+    const { movies, randomFilmNumber, handleMovieClick, isAnswered, setRoundScore} = props;
     return (   
         <ul className='movie-list'>
             {movies.map((movie, index) => {         
                 return (
-                    <AnswerElement movie={movie} index={index} key={movie.name} randomFilmNumber={randomFilmNumber} handleMovieClick={handleMovieClick} isAnswered={isAnswered} isCorrect = {index === randomFilmNumber}/>
+                    <AnswerElement movie={movie} index={index} key={movie.name} randomFilmNumber={randomFilmNumber} handleMovieClick={handleMovieClick} isAnswered={isAnswered} isCorrect = {index === randomFilmNumber} setRoundScore={setRoundScore}/>
                 )
             })}
         </ul>
@@ -23,7 +23,8 @@ Answer.propTypes = {
     handleMovieClick: PropTypes.func.isRequired,
     movies: PropTypes.arrayOf(PropTypes.object).isRequired,
     randomFilmNumber: PropTypes.number.isRequired,
-    isAnswered: PropTypes.bool.isRequired
+    isAnswered: PropTypes.bool.isRequired,
+    setRoundScore: PropTypes.func.isRequired
 }
 
 export default Answer;
