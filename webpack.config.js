@@ -4,6 +4,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 function NothingPlugin() {
   this.apply = function() {};
@@ -85,11 +86,18 @@ const config = env => ({
     new HtmlWebpackPlugin({
       template: 'public/index.html',
     }),
+    new CopyWebpackPlugin({
+      patterns : [
+       {from: './src/assets/images', to: 'images'},
+       {from: './src/assets/audio', to: 'audio'},
+      ]
+    }),
     env && env.analyze ? new BundleAnalyzerPlugin() : new NothingPlugin(),
     env && env.NODE_ENV === 'production'
       ? new MiniCssExtractPlugin({ chunkFilename: '[id].css', filename: '[name].css' })
       : new NothingPlugin(),
   ],
+
 });
 
 module.exports = env => config(env);
