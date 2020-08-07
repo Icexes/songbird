@@ -12,7 +12,7 @@ function Answer(props) {
         <ul className='movie-list'>
             {movies.map((movie, index) => {         
                 return (
-                    <AnswerElement movie={movie} index={index} key={movie.name} randomFilmNumber={randomFilmNumber} handleMovieClick={handleMovieClick} isAnswered={isAnswered}/>
+                    <AnswerElement movie={movie} index={index} key={movie.name} randomFilmNumber={randomFilmNumber} handleMovieClick={handleMovieClick} isAnswered={isAnswered} isCorrect = {index === randomFilmNumber}/>
                 )
             })}
         </ul>

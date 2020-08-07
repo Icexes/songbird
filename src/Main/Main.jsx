@@ -18,6 +18,7 @@ function Main(props) {
     const randomFilm = movies[randomFilmNumber];
     const [clickedMovie, setClickedMovie] = useState(undefined);
     console.log(roundScore, totalScore, setTotalScore)
+    
     const handleMovieClick = (result, index) => {
         if (!isAnswered) {
             if (result) {
