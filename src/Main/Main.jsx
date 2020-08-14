@@ -6,17 +6,19 @@ import RandromMovieSection from './RandromMovie/RandomMovie'
 import Description from './Description/Description'
 import movieData from '../DataFiles/movieData'
 import Answer from './Answer/Answer'
+import Results from './Results/Results'
 import './Main.scss'
 
 function Main(props) {
-    // eslint-disable-next-line no-debugger
-    const { activeCategory, setActiveCategory, totalScore, setTotalScore } = props;
+    const ROUNDS = 6;
+    const { activeCategory, setActiveCategory, totalScore, setTotalScore, activeCategoryNumber } = props;
     const [roundScore, setRoundScore] = useState(5);
     const [randomFilmNumber, setRandomFilmNumber] = useState(Math.floor(0 + Math.random() * 6));
     const [isAnswered, setIsAnswered] = useState(false);
+    const [clickedMovie, setClickedMovie] = useState(undefined);
+    const [isOver, setIsOver] = useState(false);
     const movies = movieData[activeCategory];
     const randomFilm = movies[randomFilmNumber];
-    const [clickedMovie, setClickedMovie] = useState(undefined);
     console.log(roundScore, totalScore, setTotalScore)
     
     const handleMovieClick = (result, index) => {
@@ -30,13 +32,26 @@ function Main(props) {
     }
 
     const handleNextBtnClick = () => {
+        if(activeCategoryNumber + 1 < ROUNDS) {
+        console.log(ROUNDS);
         setRandomFilmNumber(Math.floor(0 + Math.random() * 6));
         setActiveCategory((prevVal) => prevVal + 1);
         setRoundScore(5);
         setIsAnswered(false);
         setClickedMovie(undefined);
+        }
+        else setIsOver(true);
     }
 
+    const resetStates = () => {
+        setActiveCategory(0);
+        setTotalScore(0);
+        setIsAnswered(undefined);
+        setIsOver(false);
+        setClickedMovie(undefined);
+    }
+
+    if(!isOver) {
     return (
         <main className='main'>
             <RandromMovieSection film={randomFilm} isAnswered={isAnswered} />
@@ -47,6 +62,13 @@ function Main(props) {
             </div>
         </main>
     )
+    }
+    return (
+        <main className='main'>
+        <Results gameScore={totalScore} resetStates={resetStates}/>
+        </main>
+    )
+
 }
 
 Main.propTypes = {
@@ -54,7 +76,8 @@ Main.propTypes = {
    // activeCategoryNumber: PropTypes.number.isRequired,
     setActiveCategory: PropTypes.func.isRequired,
     totalScore: PropTypes.number.isRequired,
-    setTotalScore: PropTypes.func.isRequired
+    setTotalScore: PropTypes.func.isRequired,
+    activeCategoryNumber: PropTypes.number.isRequired
 }
 
 export default Main

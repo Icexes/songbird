@@ -1,0 +1,32 @@
+.results {
+    padding: 1rem;
+    background-color: gray;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    & * {
+        margin-bottom: 30px;
+    }
+    &__gratitute {
+        text-align: center;
+        font-size: 2.5rem;
+    }
+    &__description {
+        text-align: center;
+        font-size: 1.5rem;
+    }
+    &__try-again-btn {
+        padding: 15px;
+        font-size: 1.3rem;
+        outline: none;
+        color: #fff;
+        background-color: green;
+        border: none;
+        border-radius: 8px;
+        transition: 0.3s;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
