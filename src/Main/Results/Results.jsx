@@ -1,7 +1,8 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import './Results.scss'
 
-export default function Results({gameScore, resetStates}) {
+function Results({gameScore, resetStates}) {
     const MAX_SCORE = 30;
 
     if (MAX_SCORE > gameScore) {
@@ -13,5 +14,16 @@ export default function Results({gameScore, resetStates}) {
             </section>
         )
     }
-
+    return (
+        <section className='results'>
+            <h2 className='results__gratitute'>Поздравляем!</h2>
+            <p className='results__description'>Вы прошли викторину и не совершили ни единой ошибки, Вы настоящий киноман!</p>
+        </section>
+    )
 }
+
+Results.propTypes = {
+    gameScore : PropTypes.number.isRequired,
+    resetStates: PropTypes.func.isRequired 
+}
+export default Results;
