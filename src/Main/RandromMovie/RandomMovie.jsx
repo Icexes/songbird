@@ -1,6 +1,7 @@
 import React from 'react'
-import AudioPlayer from 'react-h5-audio-player'
 import PropTypes from 'prop-types'
+import AudioPlayer from '../AudioPlayer/AudioPlayer'
+import '../AudioPlayer/AudioPlayer.scss'
 
 function RandomMovie(props) {
     const {film, isAnswered} = props;
@@ -11,13 +12,7 @@ function RandomMovie(props) {
     <div className='random-movie__about'>
         <div className='random-movie__title'>{isAnswered ? film.name : '******'}</div>
         <div className='random-movie__audio'>
-            <AudioPlayer
-                src={film.audioSrc}
-                onPlay={(e) => console.log(e)}
-                layout='horizontal-reverse'
-                // other props here
-                autoPlayAfterSrcChange={false}
-                showJumpControls={false} />
+        <AudioPlayer audioSrc = {film.audioSrc}/>
         </div>
     </div>
 </section>

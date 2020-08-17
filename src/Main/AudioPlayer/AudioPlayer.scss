@@ -1,0 +1,20 @@
+
+ .rhap_container {
+    outline: none;
+    padding-top: 10px;
+    border-top: 1px solid gray;
+    box-shadow: none;
+    background-color: none;
+    & * {
+      outline: none;
+    }
+  }
+  .rhap_additional-controls {
+    display: none;
+  }
+  .rhap_volume-controls {
+    justify-content: flex-start;
+  }
+  .rhap_play-pause-button {
+    color: red;
+  }

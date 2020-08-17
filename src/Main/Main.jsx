@@ -8,6 +8,7 @@ import movieData from '../DataFiles/movieData'
 import Answer from './Answer/Answer'
 import Results from './Results/Results'
 import './Main.scss'
+import './AudioPlayer/AudioPlayer.scss'
 
 function Main(props) {
     const ROUNDS = 6;

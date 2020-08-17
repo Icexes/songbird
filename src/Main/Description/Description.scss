@@ -1,20 +1,33 @@
 .movie-description {
-    width: 48%;
+    width: 65%;
     background-color: gray;
     border-radius: 8px;
     color: #fff;
     display: flex;
     flex-wrap: wrap;
+    padding: 10px;
 
-    & * {
-        padding: 10px;
-    }
     &__img {
-        width: 200px;
-        height: 300px;
+        width: 320px;
+        height: 200px;
+        border-radius: 8px;
     }
     &__film-info {
-        // margin-top: 10px;
         width: 100%;
+        margin-top: 10px;
+        padding: 10px;
+        text-align: justify;
+    }
+    &__about {
+        flex-grow: 1;
+        padding-left: 10px;
+    }
+    &__film-name {
+        margin-bottom: 10px;
+        font-size: 1.4rem;
+        font-weight: 600;
+    }
+    &__film-name-translate {
+        margin-bottom: 20px;
     }
 }
