@@ -1,34 +1,44 @@
 .movie-list {
-    list-style: none;
-    width: 32%;
-    background-color: gray;
-    border-radius: 8px;
-    &__item {
-        padding: 15px;
-      &:hover {
-          cursor: pointer;
-      }  
+  list-style: none;
+  width: 32%;
+  background-color: gray;
+  border-radius: 8px;
+  align-self: flex-start;
+  &__item {
+    padding: 15px;
+    transition: 0.3s;
+    &:hover {
+      cursor: pointer;
+      background-color: rgb(173, 158, 158);
     }
-    &__item:not(:last-child) {
-        padding: 15px;
-        border-bottom: 1px solid black;
+    &:not(:last-child) {
+      padding: 15px;
+      border-bottom: 1px solid rgb(119, 101, 101);
     }
-    &__indicator {
-        display: inline-block;
-        margin-right: 10px;
-        height: 10px;
-        width: 10px;
-        border-radius: 50%;
-        background-color: black;
-        &--correct {
-            background-color: green;
-        }
-        &--incorrect {
-            background-color: red;
-        }
+    &:last-child {
+        border-radius: 0px 0px 8px 8px;
     }
-    &__film-name {
-        color: #fff;
-        font-weight: 700;
+    &:first-child {
+        border-radius: 8px 8px 0px 0px;
     }
+  }
+
+  &__indicator {
+    display: inline-block;
+    margin-right: 10px;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background-color: #3C403E;
+    &--correct {
+      background-color: rgb(37, 175, 37);
+    }
+    &--incorrect {
+      background-color: #f02323;
+    }
+  }
+  &__film-name {
+    color: #fff;
+    font-weight: 700;
+  }
 }
