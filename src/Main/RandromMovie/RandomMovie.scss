@@ -1,0 +1,23 @@
+.random-movie {
+    padding: 10px;
+    background-color: gray;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    &__about {
+      width: calc(100% - 360px);
+    }
+    &__title {
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+      color: #fff;
+      font-weight: 600;
+    }
+    &__img {
+      margin-left: 20px;
+      width: 300px;
+      height: 180px;
+      border-radius: 8px;
+    }
+
+  }

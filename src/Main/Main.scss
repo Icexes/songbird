@@ -2,31 +2,31 @@
 
 .main {
   margin-top: 30px;
-  .random-movie {
-    padding: 10px;
-    background-color: gray;
-    border-radius: 8px;
-    display: flex;
-    justify-content: space-between;
-    &__about {
-      width: calc(100% - 360px);
-    }
-    &__title {
-      font-size: 1.6rem;
-      margin-bottom: 20px;
-    }
-    &__img {
-      margin-left: 20px;
-      width: 300px;
-      height: 200px;
-      border-radius: 8px;
-    }
+  // .random-movie {
+  //   padding: 10px;
+  //   background-color: gray;
+  //   border-radius: 8px;
+  //   display: flex;
+  //   justify-content: space-between;
+  //   &__about {
+  //     width: calc(100% - 360px);
+  //   }
+  //   &__title {
+  //     font-size: 1.6rem;
+  //     margin-bottom: 20px;
+  //   }
+  //   &__img {
+  //     margin-left: 20px;
+  //     width: 300px;
+  //     height: 180px;
+  //     border-radius: 8px;
+  //   }
 
-  }
+  // }
   .rhap_container {
     outline: none;
     padding-top: 10px;
-    border-top: 1px solid gray;
+    border-radius: 8px;
     box-shadow: none;
     background-color: none;
     & * {
@@ -40,7 +40,13 @@
     justify-content: flex-start;
   }
   .rhap_play-pause-button {
-    color: red;
+    color: #57897c;
+  }
+  .rhap_progress-indicator {
+    background-color: #57897c;
+  }
+  .rhap_volume-indicator {
+    background-color: #57897c;
   }
   .answer-block {
     margin-top: 30px;
@@ -57,11 +63,18 @@
       font-size: 1.3rem;
       box-shadow: none;
       transition: 0.3s;
-      background-color: green;
+      background-color: rgb(87, 137, 124);
       color: #fff;
       &:hover {
         cursor: pointer;
+        &:not(:disabled) {
+          background-color: rgb(67, 114, 102);;
+        } 
+      }
+      &:disabled {
+        background-color: gray;
       }
     }
+
   }
 }
