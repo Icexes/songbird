@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import PropTypes from 'prop-types'
 import RandromMovieSection from './RandromMovie/RandomMovie'
 // import AnswerSection from './AnswerSection/AnswerSection'
@@ -20,21 +20,32 @@ function Main(props) {
     const [isOver, setIsOver] = useState(false);
     const movies = movieData[activeCategory];
     const randomFilm = movies[randomFilmNumber];
-    console.log(roundScore, totalScore, setTotalScore)
+    const playerEl = useRef(null);
     
-    const handleMovieClick = (result, index) => {
+    
+    const playAudioResult = (isCorrectAnswer) => {
+        const audio = new Audio();
+
+        audio.src = isCorrectAnswer ? '/audio/Notification/correct-answer.mp3' : '/audio/Notification/wrong-answer.mp3';
+        audio.volume = 0.75;
+        audio.play();      
+     }
+    
+    const handleMovieClick = (isCorrectAnswer, index) => {
         if (!isAnswered) {
-            if (result) {
-                setTotalScore(totalScore + roundScore);
+            if (isCorrectAnswer) {
+                playerEl.current.audio.current.pause();
+                setTotalScore((prevTotalScore) => prevTotalScore + roundScore);
                 setIsAnswered(true);
+                
             }
+            playAudioResult(isCorrectAnswer);
         }
-        setClickedMovie(movies[index])
+        setClickedMovie(movies[index]);
     }
 
     const handleNextBtnClick = () => {
         if(activeCategoryNumber + 1 < ROUNDS) {
-        console.log(ROUNDS);
         setRandomFilmNumber(Math.floor(0 + Math.random() * 6));
         setActiveCategory((prevVal) => prevVal + 1);
         setRoundScore(5);
@@ -52,10 +63,11 @@ function Main(props) {
         setClickedMovie(undefined);
     }
 
+
     if(!isOver) {
     return (
         <main className='main'>
-            <RandromMovieSection film={randomFilm} isAnswered={isAnswered} />
+            <RandromMovieSection film={randomFilm} isAnswered={isAnswered} playerEl={playerEl}/>
             <div className='answer-block'>
                 <Answer handleMovieClick={handleMovieClick} movies={movies} randomFilmNumber={randomFilmNumber} isAnswered={isAnswered} setRoundScore={setRoundScore}/>
                 <Description clickedMovie={clickedMovie} />
