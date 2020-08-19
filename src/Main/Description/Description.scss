@@ -48,9 +48,13 @@
     margin-bottom: 10px;
     font-size: 1.4rem;
     font-weight: 600;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgb(119, 101, 101);
   }
   &__film-name-translate {
     margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgb(119, 101, 101);
   }
   &__rules {
     text-align: justify;
