@@ -3,16 +3,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import './Answer.scss'
- import AnswerElement from './AnswerElement/AnswerElement'
-// <AnswerElement movie={movie} index={index} randomFilmNumber={randomFilmNumber} handleMovieClick={handleMovieClick}/>
+import AnswerElement from './AnswerElement/AnswerElement'
 
 function Answer(props) {
-    const { movies, randomFilmNumber, handleMovieClick, isAnswered, setRoundScore} = props;
-    return (   
+    const { movies, randomFilmNumber, handleMovieClick, isAnswered, setRoundScore } = props;
+    return (
         <ul className='movie-list'>
-            {movies.map((movie, index) => {         
+            {movies.map((movie, index) => {
                 return (
-                    <AnswerElement movie={movie} index={index} key={movie.name} randomFilmNumber={randomFilmNumber} handleMovieClick={handleMovieClick} isAnswered={isAnswered} isCorrect = {index === randomFilmNumber} setRoundScore={setRoundScore}/>
+                    <AnswerElement movie={movie} index={index} key={movie.name} randomFilmNumber={randomFilmNumber} handleMovieClick={handleMovieClick} isAnswered={isAnswered} isCorrect={index === randomFilmNumber} setRoundScore={setRoundScore} />
                 )
             })}
         </ul>

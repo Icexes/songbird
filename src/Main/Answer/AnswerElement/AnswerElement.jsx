@@ -10,8 +10,6 @@ function AnswerElement(props) {
     const { movie, index, handleMovieClick, isAnswered, isCorrect, setRoundScore } = props;
     const [indicatorState, setindicatorState] = useState('gray');
 
-
-
     return (
         // eslint-disable-next-line jsx-a11y/click-events-have-key-events
         <li className='movie-list__item' onClick={() => {
@@ -21,17 +19,17 @@ function AnswerElement(props) {
                 if (!isAnswered) {
                     if (!isCorrect) {
                         newIndicatorState = 'red';
-                        setRoundScore((prevScore) => prevScore -1)
+                        setRoundScore((prevScore) => prevScore - 1)
 
                     }
                     else {
-                    newIndicatorState = 'green'
-                }
+                        newIndicatorState = 'green'
+                    }
                 }
 
                 setindicatorState(newIndicatorState);
             }
-            
+
 
 
         }}>
