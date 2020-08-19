@@ -6,7 +6,7 @@ import './RandomMovie.scss'
 
 function RandomMovie(props) {
     const {film, isAnswered, playerEl} = props;
-    const movieImgSrc = isAnswered ? film.posterSrc : './images/unnamed.png';
+    const movieImgSrc = isAnswered ? film.posterSrc : './images/default.png';
     console.log(film.name)
     return(
    
