@@ -6,9 +6,10 @@ import './RandomMovie.scss'
 
 function RandomMovie(props) {
     const {film, isAnswered, playerEl} = props;
-    const movieImgSrc = isAnswered ? film.posterSrc : './images/question.jpg';
-    console.log(film.name);
+    const movieImgSrc = isAnswered ? film.posterSrc : './images/unnamed.png';
+    console.log(film.name)
     return(
+   
     <section className='random-movie'>
     <img className='random-movie__img' src={movieImgSrc} alt='poster'/>
     <div className='random-movie__about'>
@@ -25,7 +26,12 @@ RandomMovie.propTypes = {
     // eslint-disable-next-line react/forbid-prop-types
     film : PropTypes.object.isRequired,
     isAnswered : PropTypes.bool.isRequired,
-    playerEl: PropTypes.bool.isRequired
+    playerEl: PropTypes.shape({
+        currect : PropTypes.object
+    })
+}
+RandomMovie.defaultProps = {
+    playerEl: {}
 }
 
 export default RandomMovie;

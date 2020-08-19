@@ -12,12 +12,12 @@ import './AudioPlayer/AudioPlayer.scss'
 
 function Main(props) {
     const ROUNDS = 6;
-    const { activeCategory, setActiveCategory, totalScore, setTotalScore, activeCategoryNumber } = props;
+    const { activeCategory, setActiveCategoryNumber, isOver, setIsOver, totalScore, setTotalScore, activeCategoryNumber } = props;
     const [roundScore, setRoundScore] = useState(5);
     const [randomFilmNumber, setRandomFilmNumber] = useState(Math.floor(0 + Math.random() * 6));
     const [isAnswered, setIsAnswered] = useState(false);
     const [clickedMovie, setClickedMovie] = useState(undefined);
-    const [isOver, setIsOver] = useState(false);
+    
     const movies = movieData[activeCategory];
     const randomFilm = movies[randomFilmNumber];
     const playerEl = useRef(null);
@@ -27,7 +27,7 @@ function Main(props) {
         const audio = new Audio();
 
         audio.src = isCorrectAnswer ? '/audio/Notification/correct-answer.mp3' : '/audio/Notification/wrong-answer.mp3';
-        audio.volume = 0.75;
+        audio.volume = 0.65;
         audio.play();      
      }
     
@@ -47,7 +47,7 @@ function Main(props) {
     const handleNextBtnClick = () => {
         if(activeCategoryNumber + 1 < ROUNDS) {
         setRandomFilmNumber(Math.floor(0 + Math.random() * 6));
-        setActiveCategory((prevVal) => prevVal + 1);
+        setActiveCategoryNumber((prevVal) => prevVal + 1);
         setRoundScore(5);
         setIsAnswered(false);
         setClickedMovie(undefined);
@@ -56,9 +56,9 @@ function Main(props) {
     }
 
     const resetStates = () => {
-        setActiveCategory(0);
+        setActiveCategoryNumber(0);
         setTotalScore(0);
-        setIsAnswered(undefined);
+        setIsAnswered(false);
         setIsOver(false);
         setClickedMovie(undefined);
     }
@@ -87,10 +87,12 @@ function Main(props) {
 Main.propTypes = {
     activeCategory: PropTypes.string.isRequired,
    // activeCategoryNumber: PropTypes.number.isRequired,
-    setActiveCategory: PropTypes.func.isRequired,
+   setActiveCategoryNumber: PropTypes.func.isRequired,
     totalScore: PropTypes.number.isRequired,
     setTotalScore: PropTypes.func.isRequired,
-    activeCategoryNumber: PropTypes.number.isRequired
+    activeCategoryNumber: PropTypes.number.isRequired,
+    isOver: PropTypes.bool.isRequired,
+    setIsOver: PropTypes.func.isRequired
 }
 
 export default Main

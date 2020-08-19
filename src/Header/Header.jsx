@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import './Header.scss'
 
-function Header({ score, activeCategory, categories }) {
+function Header({ score, activeCategoryNumber, categories, isOver }) {
     const HeaderPanel = () => {
         return (
             <div className='header__panel'>
@@ -15,7 +15,7 @@ function Header({ score, activeCategory, categories }) {
         )
     }
     const Menu = () => {
-        const MenuList = categories.map((value, index) => <li key={value} className={activeCategory === index ? 'menu__item menu__item--active' : 'menu__item'} >{value}</li>);
+        const MenuList = categories.map((value, index) => <li key={value} className={(activeCategoryNumber === index) && !isOver ? 'menu__item menu__item--active' : 'menu__item'} >{value}</li>);
         return (
             <ul className='menu'>
                 {MenuList}
@@ -36,8 +36,9 @@ function Header({ score, activeCategory, categories }) {
 
 Header.propTypes = {
     score: PropTypes.number.isRequired,
-    activeCategory: PropTypes.number.isRequired,
-    categories: PropTypes.arrayOf(PropTypes.string).isRequired
+    activeCategoryNumber: PropTypes.number.isRequired,
+    categories: PropTypes.arrayOf(PropTypes.string).isRequired,
+    isOver: PropTypes.bool.isRequired
 }
 
 export default Header

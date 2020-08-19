@@ -2,19 +2,17 @@ import React, { useState } from 'react';
 import Header from './Header/Header'
 import Main from './Main/Main'
 
-// const AddTodo = React.lazy(() => import('./toDo/AddTodo'));
-
-
 function App() {
   const [totalScore, setTotalScore] = useState(0);
-  const [activeCategory, setActiveCategory] = useState(0);
-  const categories = ['Драмы', 'Фантастика', 'Триллеры', 'Комедии', 'Мультфильмы', 'Сериалы'];
-    return (
-      <div className='wrapper'>
-        <Header score={totalScore} activeCategory={activeCategory} categories={categories} />
-        <Main activeCategory={categories[activeCategory]} setActiveCategory={setActiveCategory} activeCategoryNumber={activeCategory} totalScore={totalScore} setTotalScore={setTotalScore}/>
-      </div>
-    )
+  const [activeCategoryNumber, setActiveCategoryNumber] = useState(0);
+  const CATEGORIES = ['Драмы', 'Фантастика', 'Триллеры', 'Комедии', 'Мультфильмы', 'Сериалы'];
+  const [isOver, setIsOver] = useState(false);
+  return (
+    <div className='wrapper'>
+      <Header score={totalScore} activeCategoryNumber={activeCategoryNumber} categories={CATEGORIES} isOver={isOver} />
+      <Main isOver={isOver} setIsOver={setIsOver} activeCategory={CATEGORIES[activeCategoryNumber]} setActiveCategoryNumber={setActiveCategoryNumber} activeCategoryNumber={activeCategoryNumber} totalScore={totalScore} setTotalScore={setTotalScore} />
+    </div>
+  )
 }
 
 export default App;
