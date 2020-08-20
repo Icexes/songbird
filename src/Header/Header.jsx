@@ -6,7 +6,7 @@ function Header({ score, activeCategoryNumber, categories, isOver }) {
     const HeaderPanel = () => {
         return (
             <div className='header__panel'>
-                <div className='header__logo' />
+                <div className='header__logo'>Movie Quiz</div>
                 <div className='score'>
                     <span className='score__label'>Score:</span>
                     <span className='score__value'>{score}</span>

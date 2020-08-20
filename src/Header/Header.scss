@@ -2,16 +2,25 @@
   display: flex;
   justify-content: space-between;
 
+  .header__logo {
+    font-size: 3rem;
+    font-family: 'Permanent Marker', cursive;
+    color: #85a1ca;
+    margin-right: 10px;
+    line-height: 1;
+  }
   .score {
     color: #fff;
     font-weight: 700;
     font-size: 1.5rem;
+    display: flex;
+    align-items: center;
   }
 }
 
 .menu {
   display: flex;
-  margin-top: 30px;
+  margin-top: 20px;
   justify-content: space-between;
   flex-wrap: wrap;
 
