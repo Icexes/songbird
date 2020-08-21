@@ -3,7 +3,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import './Answer.scss'
-import AnswerElement from './AnswerElement/AnswerElement'
+import AnswerElement from './AnswerElement'
 
 function Answer(props) {
     const { movies, randomFilmNumber, handleMovieClick, isAnswered, setRoundScore } = props;

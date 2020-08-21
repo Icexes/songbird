@@ -1,13 +1,12 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState, useRef } from 'react'
 import PropTypes from 'prop-types'
-import RandromMovieSection from './RandromMovie/RandomMovie'
-import Description from './Description/Description'
-import movieData from '../DataFiles/movieData'
-import Answer from './Answer/Answer'
-import Results from './Results/Results'
+import RandromMovieSection from './RandromMovie'
+import Description from './Description'
+import movieData from '../../DataFiles/movieData'
+import Answer from './Answer'
+import Results from './Results'
 import './Main.scss'
-import './AudioPlayer/AudioPlayer.scss'
 
 function Main(props) {
     const ROUNDS = 6;

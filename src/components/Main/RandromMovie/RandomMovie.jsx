@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import AudioPlayer from '../AudioPlayer/AudioPlayer'
-import '../AudioPlayer/AudioPlayer.scss'
 import './RandomMovie.scss'
 
 function RandomMovie(props) {
