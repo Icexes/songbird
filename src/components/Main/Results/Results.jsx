@@ -15,6 +15,7 @@ function Results({ gameScore, resetStates }) {
     }
     return (
         <section className='results'>
+            <img className='results__img' src='/images/success.gif' alt='result' />
             <h2 className='results__gratitute'>Поздравляем!</h2>
             <p className='results__description'>Вы прошли викторину и не совершили ни единой ошибки, Вы настоящий киноман!</p>
         </section>

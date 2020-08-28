@@ -8,6 +8,20 @@
   & * {
     margin-bottom: 30px;
   }
+  &__img {
+    height: 400px;
+    width: 500px;
+    margin: 0 auto;
+    border-radius: 8px;
+    @media screen and (max-width: 550px) {
+      height: 300px;
+      width: 400px;
+    }
+    @media screen and (max-width: 450px) {
+      height: 180px;
+      width: 260px;
+    }
+  }
   &__gratitute {
     text-align: center;
     font-size: 2.5rem;
