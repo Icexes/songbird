@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import AudioPlayer from '../AudioPlayer/AudioPlayer'
 import './RandomMovie.scss'
@@ -6,9 +6,10 @@ import './RandomMovie.scss'
 function RandomMovie(props) {
     const { film, isAnswered, playerEl } = props;
     const movieImgSrc = isAnswered ? film.posterSrc : './images/default.png';
-    console.log(film.name)
-    return (
 
+    useEffect(() => console.log(film.name), [film]);
+
+    return (
         <section className='random-movie'>
             <img className='random-movie__img' src={movieImgSrc} alt='poster' />
             <div className='random-movie__about'>
@@ -22,15 +23,20 @@ function RandomMovie(props) {
 }
 
 RandomMovie.propTypes = {
-    // eslint-disable-next-line react/forbid-prop-types
-    film: PropTypes.object.isRequired,
+
+    film: PropTypes.shape({
+        posterSrc: PropTypes.string,
+        name: PropTypes.string,
+        audioSrc: PropTypes.string
+    }),
     isAnswered: PropTypes.bool.isRequired,
     playerEl: PropTypes.shape({
         currect: PropTypes.object
     })
 }
 RandomMovie.defaultProps = {
-    playerEl: {}
+    playerEl: {},
+    film: {}
 }
 
 export default RandomMovie;
