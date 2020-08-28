@@ -65,7 +65,7 @@ function Main(props) {
                 <div className='answer-block'>
                     <Answer handleMovieClick={handleMovieClick} movies={movies} randomFilmNumber={randomFilmNumber} isAnswered={isAnswered} setRoundScore={setRoundScore} />
                     <Description clickedMovie={clickedMovie} />
-                    <button type='button' disabled={!isAnswered} className='answer-block__next-level' onClick={() => handleNextBtnClick()}>Далее</button>
+                    <button type='button' disabled={!isAnswered} className='answer-block__next-level' onClick={() => handleNextBtnClick()}>Next Level</button>
                 </div>
             </main>
         )
