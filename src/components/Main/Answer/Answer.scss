@@ -11,6 +11,7 @@
   &__item {
     padding: 15px;
     transition: 0.3s;
+    user-select: none;
     &:hover {
       cursor: pointer;
       background-color: rgb(173, 158, 158);
