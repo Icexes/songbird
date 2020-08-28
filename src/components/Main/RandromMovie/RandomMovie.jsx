@@ -7,7 +7,7 @@ function RandomMovie(props) {
     const { film, isAnswered, playerEl } = props;
     const movieImgSrc = isAnswered ? film.posterSrc : './images/default.png';
 
-    useEffect(() => console.log(film.name), [film]);
+    useEffect(() => console.log('Правильный ответ: ',film.name), [film]);
 
     return (
         <section className='random-movie'>
