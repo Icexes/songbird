@@ -18,13 +18,6 @@ function Main(props) {
     const randomFilm = movies[randomFilmNumber];
     const playerEl = useRef(null);
 
-    const playAudioResult = (isCorrectAnswer) => {
-        const audio = new Audio();
-
-        audio.src = isCorrectAnswer ? '/audio/Notification/correct-answer.mp3' : '/audio/Notification/wrong-answer.mp3';
-        audio.volume = 0.65;
-        audio.play();
-    }
 
     const handleMovieClick = (isCorrectAnswer, index) => {
         if (!isAnswered) {
@@ -34,7 +27,7 @@ function Main(props) {
                 setIsAnswered(true);
 
             }
-            playAudioResult(isCorrectAnswer);
+
         }
         setClickedMovie(movies[index]);
     }
