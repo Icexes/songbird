@@ -1,9 +1,7 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React from 'react'
 import PropTypes from 'prop-types'
-import './Answer.scss'
 import AnswerElement from './AnswerElement'
+import './Answer.scss'
 
 function Answer(props) {
     const { movies, randomFilmNumber, handleMovieClick, isAnswered, setRoundScore } = props;
