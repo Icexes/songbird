@@ -1,0 +1,49 @@
+.movie-list {
+  list-style: none;
+  width: 32%;
+  background-color: #85a1ca;
+  border-radius: 8px;
+  align-self: flex-start;
+  @media screen and (max-width: 600px) {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  &__item {
+    padding: 15px;
+    transition: 0.3s;
+    user-select: none;
+    &:hover {
+      cursor: pointer;
+      background-color: rgb(173, 158, 158);
+    }
+    &:not(:last-child) {
+      padding: 15px;
+      border-bottom: 1px solid rgb(119, 101, 101);
+    }
+    &:last-child {
+      border-radius: 0px 0px 8px 8px;
+    }
+    &:first-child {
+      border-radius: 8px 8px 0px 0px;
+    }
+  }
+
+  &__indicator {
+    display: inline-block;
+    margin-right: 10px;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background-color: #3c403e;
+    &--correct {
+      background-color: rgb(37, 175, 37);
+    }
+    &--incorrect {
+      background-color: #f02323;
+    }
+  }
+  &__film-name {
+    color: #fff;
+    font-weight: 700;
+  }
+}

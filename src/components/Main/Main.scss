@@ -1,0 +1,61 @@
+@import 'react-h5-audio-player/lib/styles.css';
+
+.main {
+  margin-top: 30px;
+  .rhap_container {
+    outline: none;
+    padding-top: 10px;
+    border-radius: 8px;
+    box-shadow: none;
+    background-color: none;
+    & * {
+      outline: none;
+    }
+  }
+  .rhap_additional-controls {
+    display: none;
+  }
+  .rhap_volume-controls {
+    justify-content: flex-start;
+  }
+  .rhap_play-pause-button {
+    color: #57897c;
+  }
+  .rhap_progress-indicator {
+    background-color: #57897c;
+  }
+  .rhap_volume-indicator {
+    background-color: #57897c;
+  }
+  .answer-block {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    @media screen and (max-width: 600px) {
+      flex-direction: column;
+    }
+    .answer-block__next-level {
+      width: 100%;
+      margin-top: 15px;
+      padding: 8px;
+      border: none;
+      border-radius: 8px;
+      outline: none;
+      font-size: 1.3rem;
+      box-shadow: none;
+      transition: 0.3s;
+      background-color: rgb(87, 137, 124);
+      color: #fff;
+      &:hover {
+        cursor: pointer;
+        &:not(:disabled) {
+          background-color: rgb(67, 114, 102);
+        }
+      }
+      &:disabled {
+        background-color: gray;
+      }
+    }
+  }
+}
